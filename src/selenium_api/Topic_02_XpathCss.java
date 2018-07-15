@@ -1,7 +1,5 @@
 package selenium_api;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,11 +15,38 @@ public class Topic_02_XpathCss {
 	public void beforeClass() {
 		driver = new FirefoxDriver();		
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("http://live.guru99.com/");
 	}    
     
 	@Test
+	
+	public void TC_01(){
+		//kiem tra title
+		String CheckTitle = driver.getTitle();
+		String expected ="Home page";
+		
+		//ket qua sau khi kiem tra title
+		Assert.assertEquals(CheckTitle,expected);
+				
+		// toi trang dang nhap
+		driver.findElement(By.xpath("//div[@class='footer']//a[contains(text(),'My Account')]")).click();
+		
+		// toi trang dang ky
+		driver.findElement(By.xpath("//span[contains(text(),\"Create an Account\")]")).click();
+		
+		//back lai trang dang nhap
+		driver.navigate().back();
+		
+		//chuyen tiep toi trang dang ky
+		driver.navigate().forward();
+		
+		// kiem tra url cua trang dang ky
+		String URL = driver.getCurrentUrl();
+		Assert.assertEquals("http://live.guru99.com/index.php/customer/account/create/", URL);
+	}	
 	
 /*	
 	public void TC_02_Login_Empty() {		
@@ -58,7 +83,9 @@ public class Topic_02_XpathCss {
 		Assert.assertEquals("Please enter a valid email address. For example johndoe@domain.com.", emailErroMsg1);
 				
 	}	
-*/		
+*/
+	
+/*	
 
 	public void TC_04(){		
 		driver.findElement(By.xpath("//div[@class=\"footer\"]//a[contains(text(),\"My Account\")]")).click();
@@ -77,12 +104,12 @@ public class Topic_02_XpathCss {
 		Assert.assertEquals("Please enter 6 or more characters without leading or trailing spaces.", passlErroMsg4);
 				
 	}	
-	
+*/	
 	
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		//driver.quit();
 	}
 
 }
