@@ -4,25 +4,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_01_CheckEnvironment {
+public class Topic_00_Teamplate {
     WebDriver driver;
-
-	@Test
-	public void TC_01_CheckUrlAndTitle() {
-		
-		String homePageTitle = driver.getTitle();
-		Assert.assertEquals(homePageTitle, "Guru99 Bank Home Page");
-
-		System.out.println("Check homepage url");
-		String homePageUrl = driver.getCurrentUrl();
-		Assert.assertEquals(homePageUrl, "http://demo.guru99.com/v4/");
-	}
-
+    
 	@BeforeClass
 	public void beforeClass() {
 		driver = new FirefoxDriver();
@@ -30,6 +18,14 @@ public class Topic_01_CheckEnvironment {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
+
+	@Test
+	public void TC_01_CheckUrlAndTitle() {
+		
+		
+	}
+
+
 
 	@AfterClass
 	public void afterClass() {

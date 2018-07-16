@@ -48,7 +48,7 @@ public class Topic_02_XpathCss {
 		Assert.assertEquals("http://live.guru99.com/index.php/customer/account/create/", URL);
 	}	
 	
-/*	
+	@Test
 	public void TC_02_Login_Empty() {		
 		
 		driver.findElement(By.xpath("//div[@class='footer']//a[contains(text(),'My Account')]")).click();
@@ -65,11 +65,9 @@ public class Topic_02_XpathCss {
 		String passErroMsg = driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText();
 		Assert.assertEquals("This is a required field.", passErroMsg);
 		
-	}
-*/	
+	}	
 
-	
-/*
+	@Test
 	public void TC_03(){		
 		driver.findElement(By.xpath("//div[@class=\"footer\"]//a[contains(text(),\"My Account\")]")).click();
 		
@@ -83,10 +81,8 @@ public class Topic_02_XpathCss {
 		Assert.assertEquals("Please enter a valid email address. For example johndoe@domain.com.", emailErroMsg1);
 				
 	}	
-*/
-	
-/*	
 
+	@Test
 	public void TC_04(){		
 		driver.findElement(By.xpath("//div[@class=\"footer\"]//a[contains(text(),\"My Account\")]")).click();
 		
@@ -104,12 +100,12 @@ public class Topic_02_XpathCss {
 		Assert.assertEquals("Please enter 6 or more characters without leading or trailing spaces.", passlErroMsg4);
 				
 	}	
-*/	
+
 	
 
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 
 }
