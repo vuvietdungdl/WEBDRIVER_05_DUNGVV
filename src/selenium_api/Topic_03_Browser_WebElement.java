@@ -241,7 +241,7 @@ public class Topic_03_Browser_WebElement {
 		}
 		else {
 			driver.findElement(By.xpath("//input[@id='development']")).click();
-			Thread.sleep(3000);
+			
 		}
 	}
 
